@@ -59,18 +59,9 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:padding="13dp"
-        android:src="@drawable/icon_forword_black"
+        android:background="default"
+        android:src="@drawable/ic_baseline_delete_24"
         android:scaleType="fitXY"
         android:layout_gravity="center"
         />
-    <ImageButton
-        android:id="@+id/btnUpdate"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="13dp"
-        android:src="@drawable/icon_forword_black"
-        android:scaleType="fitXY"
-        android:layout_gravity="center"
-        />
-
 </LinearLayout>

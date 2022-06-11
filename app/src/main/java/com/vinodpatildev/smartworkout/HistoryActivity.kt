@@ -42,23 +42,23 @@ class HistoryActivity : AppCompatActivity() {
     private fun setupHistoryExerciseRV(list: ArrayList<ExerciseEntity>, exerciseDao:ExerciseDao) {
 
         exerciseAdapter = ExerciseHistoryAdapter(
-            list,
-            {itemId->
-                updateExercise(itemId)
-            },
-            {itemId->
-                deleteExercise(itemId)
-            }
-            )
+            list
+        )
+//            {itemId->
+//                updateExercise(itemId)
+//            },
+        { itemId ->
+            deleteExercise(itemId)
+        }
         binding?.rvHistory?.adapter = exerciseAdapter
     }
-    private fun updateExercise(id: Int){
-        lifecycleScope.launch{
-            exerciseDao?.fetchExerciseById(id)?.collect{
-                exerciseDao!!.update(ExerciseEntity(id=id, title="Updated Data", time=System.currentTimeMillis().toString()))
-            }
-        }
-    }
+//    private fun updateExercise(id: Int){
+//        lifecycleScope.launch{
+//            exerciseDao?.fetchExerciseById(id)?.collect{
+//                exerciseDao!!.update(ExerciseEntity(id=id, title="Updated Data", time=System.currentTimeMillis().toString()))
+//            }
+//        }
+//    }
     private fun deleteExercise(id: Int){
         lifecycleScope.launch{
             exerciseDao?.fetchExerciseById(id)?.collect{

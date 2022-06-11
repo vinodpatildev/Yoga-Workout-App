@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vinodpatildev.smartworkout.databinding.RvHistoryItemViewBinding
 
 class ExerciseHistoryAdapter(private val items : ArrayList<ExerciseEntity>,
-                             private val updateListener: (id:Int)->Unit,
+//                             private val updateListener: (id:Int)->Unit,
                              private val deleteListener: (id:Int)->Unit
                              ): RecyclerView.Adapter<ExerciseHistoryAdapter.exerciseViewHolder>() {
     inner class exerciseViewHolder(val binding: RvHistoryItemViewBinding) :RecyclerView.ViewHolder(binding?.root) {
@@ -17,7 +17,7 @@ class ExerciseHistoryAdapter(private val items : ArrayList<ExerciseEntity>,
         val tvTitle = binding.tvTitle
         val tvTime = binding.tvTime
         val btnDelete = binding.btnDelete
-        val btnUpdate = binding.btnUpdate
+//        val btnUpdate = binding.btnUpdate
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): exerciseViewHolder {
@@ -32,9 +32,9 @@ class ExerciseHistoryAdapter(private val items : ArrayList<ExerciseEntity>,
         holder.tvTitle.text = item.title
         holder.tvTime.text = item.time
 
-        holder.btnUpdate.setOnClickListener {
-            updateListener.invoke(item.id)
-        }
+//        holder.btnUpdate.setOnClickListener {
+//            updateListener.invoke(item.id)
+//        }
         holder.btnDelete.setOnClickListener {
             deleteListener.invoke(item.id)
         }
