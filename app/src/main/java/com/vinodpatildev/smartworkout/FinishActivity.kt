@@ -8,6 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.vinodpatildev.smartworkout.databinding.ActivityFinishBinding
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.days
+import kotlin.time.Duration.Companion.hours
 
 class FinishActivity : AppCompatActivity() {
     private var binding : ActivityFinishBinding? = null

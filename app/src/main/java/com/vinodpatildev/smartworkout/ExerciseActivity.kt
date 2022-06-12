@@ -24,7 +24,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var currentExercisePosition = -1
 
     private var tts: TextToSpeech? = null
-    private var player: MediaPlayer? = null
+//    private var player: MediaPlayer? = null
 
     private var rvExerciseStatusAdapter: ExerciseIndexAdapter? = null
 
@@ -46,12 +46,26 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.toolbarExercise?.setNavigationOnClickListener {view->
             onBackPressed()
         }
+        binding?.ibPrev?.setOnClickListener {
+            setExercise(currentExercisePosition+1-1)
+        }
+        binding?.ibNext?.setOnClickListener{
+            setExercise(currentExercisePosition+1+1)
+        }
+
         setupExerciseStatusAdapter()
         setupRestView()
+
+
     }
 
     private fun setupExerciseStatusAdapter() {
-        rvExerciseStatusAdapter = exerciseList?.let { ExerciseIndexAdapter(it) }
+        rvExerciseStatusAdapter = exerciseList?.let { ExerciseIndexAdapter(
+            it,
+            {exerciseNumber ->
+                setExercise(exerciseNumber)
+            }
+        ) }
         binding?.rvExerciseIndex?.adapter = rvExerciseStatusAdapter
     }
 
@@ -79,6 +93,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         rvExerciseStatusAdapter?.notifyDataSetChanged()
         setRestTimer()
     }
+
     private fun setRestTimer(){
 
         binding?.progressBarGR?.progress = restProgress
@@ -103,6 +118,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }.start()
     }
+
     private fun setupExerciseTimerView(){
         binding?.tvTitle?.visibility = View.INVISIBLE
         binding?.flProgressBarGR?.visibility = View.INVISIBLE
@@ -122,24 +138,25 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         setupExerciseTimer()
     }
+
     private fun setupExerciseTimer(){
-        try{
-            var soundURI: Uri? = null
-            when((1..7).random()){
-                1-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_1)}
-                2-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_2)}
-                3-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_3)}
-                4-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_4)}
-                5-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_5)}
-                6-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_6)}
-                7-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_7)}
-            }
-            player = MediaPlayer.create(applicationContext,soundURI)
-            player?.isLooping = false
-            player?.start()
-        }catch (e:Exception){
-            e.printStackTrace()
-        }
+//        try{
+//            var soundURI: Uri? = null
+//            when((1..7).random()){
+//                1-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_1)}
+//                2-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_2)}
+//                3-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_3)}
+//                4-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_4)}
+//                5-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_5)}
+//                6-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_6)}
+//                7-> {soundURI = Uri.parse("android.resource://com.vinodpatildev.smartworkout/"+R.raw.sound_7)}
+//            }
+//            player = MediaPlayer.create(applicationContext,soundURI)
+//            player?.isLooping = false
+//            player?.start()
+//        }catch (e:Exception){
+//            e.printStackTrace()
+//        }
         binding?.progressBarEx?.progress = restProgress
         restTimer = object : CountDownTimer(30000, 100){
             override fun onTick(p0: Long) {
@@ -151,7 +168,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 restProgress++
                 binding?.progressBarEx?.progress = 0
                 binding?.tvTimerEx?.text = (0).toString()
-                player?.stop()
+//                player?.stop()
                 exerciseList!![currentExercisePosition].setIsSelected(false)
                 exerciseList!![currentExercisePosition].setIsCompleted(true)
                 rvExerciseStatusAdapter?.notifyDataSetChanged()
@@ -165,6 +182,16 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }.start()
     }
+
+    private fun setExercise(exerciseNumber: Int){
+
+        if(exerciseNumber >=1 && exerciseNumber <= 12){
+            currentExercisePosition = exerciseNumber - 2
+            restTimer?.cancel()
+            setupRestView()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         if(restTimer != null){
@@ -178,16 +205,18 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             tts?.shutdown()
         }
 
-        if(player != null){
-            player?.stop()
-        }
+//        if(player != null){
+//            player?.stop()
+//        }
         if(rvExerciseStatusAdapter != null){
             rvExerciseStatusAdapter = null
         }
     }
+
     private fun speakOut(text:String){
         tts?.speak(text,TextToSpeech.QUEUE_FLUSH,null,"")
     }
+
     override fun onInit(status: Int) {
         if(status == TextToSpeech.SUCCESS){
             val result = tts?.setLanguage(Locale.ENGLISH)

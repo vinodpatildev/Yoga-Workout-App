@@ -1,14 +1,21 @@
 package com.vinodpatildev.smartworkout
 
 import android.graphics.drawable.Drawable
+import android.location.GnssAntennaInfo
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.vinodpatildev.smartworkout.databinding.RvExerciseIndexItemBinding
+import java.lang.Integer.parseInt
 
-class ExerciseIndexAdapter(val items: ArrayList<ExerciseModel>): RecyclerView.Adapter<ExerciseIndexAdapter.viewHolder>() {
+class ExerciseIndexAdapter(
+    private val items: ArrayList<ExerciseModel>,
+    private val selectListener: (exerciseNumber: Int) -> Unit
+): RecyclerView.Adapter<ExerciseIndexAdapter.viewHolder>() {
     inner class viewHolder(val itemBinding: RvExerciseIndexItemBinding):RecyclerView.ViewHolder(itemBinding.root) {
         fun bindItem(item:ExerciseModel){
             itemBinding.tvExerciseIndex.text = item.getId().toString()
@@ -28,6 +35,9 @@ class ExerciseIndexAdapter(val items: ArrayList<ExerciseModel>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         holder.bindItem(items[position])
+        holder.itemBinding.tvExerciseIndex.setOnClickListener {
+            selectListener.invoke( parseInt((it as TextView).text.toString()) )
+        }
     }
 
     override fun getItemCount(): Int {
