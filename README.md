@@ -25,7 +25,7 @@ This android application can be used perform different king of yogasanas by watc
     <th>Perform the posture in 30 seconds</th>
   </tr>
   <tr>
-	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/wait.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/wait_10_seconds.jpg" width="250" /> </td>
 	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_1.jpg" width="250" /> </td>
 	
 </table>
