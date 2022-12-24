@@ -15,7 +15,8 @@ This android application can be used perform different king of yogasanas by watc
     <th>Home Page</th>
   </tr>
   <tr>
-	<td> <img src="https://github.com/vinodpatildev/Drawing-App/blob/master/screenshots%20of%20app/drawing_app_1.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/home.jpg" width="250" /> </td>
+	
 </table>
 
 <table>
@@ -24,7 +25,9 @@ This android application can be used perform different king of yogasanas by watc
     <th>Perform the posture in 30 seconds</th>
   </tr>
   <tr>
-	<td> <img src="https://github.com/vinodpatildev/Drawing-App/blob/master/screenshots%20of%20app/drawing_app_1.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/wait.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_1.jpg" width="250" /> </td>
+	
 </table>
 
 <table>
@@ -43,15 +46,26 @@ This android application can be used perform different king of yogasanas by watc
 	<th>Posture 12</th>
   </tr>
   <tr>
-	<td> <img src="https://github.com/vinodpatildev/Drawing-App/blob/master/screenshots%20of%20app/drawing_app_1.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_1.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_2.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_3.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_4.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_5.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_6.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_7.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_8.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_9.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_10.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_11.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/posture_12.jpg" width="250" /> </td>
+	
 </table>
-
 <table>
   <tr>
       <th>Save your work</th>
 	<th>See history logs saved in local database</th>
-	
   </tr>
   <tr>
-	<td> <img src="https://github.com/vinodpatildev/Drawing-App/blob/master/screenshots%20of%20app/drawing_app_1.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/save_progress.jpg" width="250" /> </td>
+	<td> <img src="https://github.com/vinodpatildev/Yoga-Workout-App/blob/master/screenshots%20of%20app/history.jpg" width="250" /> </td>
 </table>
