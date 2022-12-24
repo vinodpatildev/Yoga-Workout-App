@@ -8,6 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.vinodpatildev.smartworkout.databinding.ActivityFinishBinding
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.time.Duration.Companion.days
 import kotlin.time.Duration.Companion.hours
 
@@ -15,6 +17,9 @@ class FinishActivity : AppCompatActivity() {
     private var binding : ActivityFinishBinding? = null
     private var player: MediaPlayer? = null
     private var exerciseDao: ExerciseDao? = null
+    private val cal = Calendar.getInstance()
+    private val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFinishBinding.inflate(layoutInflater)
@@ -37,7 +42,7 @@ class FinishActivity : AppCompatActivity() {
                 val name = binding?.etName?.text.toString()
 
                 lifecycleScope.launch{
-                    exerciseDao!!.insert( ExerciseEntity( title = name, time = System.currentTimeMillis().toString() ) )
+                    exerciseDao!!.insert( ExerciseEntity( title = name, time = sdf.format(cal.time).toString() ) )
                 }
                 stopPlayer()
                 finish()

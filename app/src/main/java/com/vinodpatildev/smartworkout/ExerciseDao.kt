@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ExerciseDao{
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(exerciseEntity: ExerciseEntity)
 
